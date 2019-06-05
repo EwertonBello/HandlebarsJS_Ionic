@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista de Filmes</title>
+    <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+    <link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-title>Star Wars Filmes</ion-title>
+        </ion-toolbar>
+    </ion-header>
+</head>
+
+<body>
+
+    <!-- <script>
+        fetch('https://swapi.co/api/films/?format=json').then(function (res) {
+
+            res.json().then(data => {
+                const source = document.getElementById('template').innerHTML;
+                const template = Handlebars.compile(source);
+                document.getElementById('show').innerHTML = template(data);
+            });
+        })
+    </script> -->
+
+    <script>
+        fetch('https://swapi.co/api/films/?format=json').then(data => data.json()).then(function (data) {
+
+            const source = document.getElementById('template').innerHTML;
+            const template = Handlebars.compile(source);
+            document.getElementById('show').innerHTML = template(data);
+
+        })
+    </script>
+
+    <!-- <script>
+        fetch('https://swapi.co/api/films/?format=json').then(async function (data) {
+
+            const data = await data.json();
+            const source = document.getElementById('template').innerHTML;
+            const template = Handlebars.compile(source);
+            document.getElementById('show').innerHTML = template(data);
+
+        })
+    </script> -->
+
+    <!-- <script>
+        $.getJSON('https://swapi.co/api/films/?format=json', function (data) {
+
+            const source = document.getElementById('template').innerHTML;
+            const template = Handlebars.compile(source);
+            document.getElementById('show').innerHTML = template(data);
+
+        })
+    </script> -->
+
+
+    <script id="template" type="text/x-handlebars-template">
+
+    <ion-list>
+        {{#each results}}
+        <ion-item>
+            <ion-avatar slot="start">
+                <img src="https://s.aficionados.com.br/imagens/star-wars-ix-nao-e-o-poster-do-filme-confirma-disney-sobre-imagem_f.jpg">
+            </ion-avatar>
+            <ion-label>{{ title }}</ion-label>
+        </ion-item>
+        {{/each}}
+    </ion-list>
+            
+    </script>
+
+    <div id="show">
+        <ion-spinner></ion-spinner>
+    </div>
+
+</body>
+<style>
+    ion-spinner {
+        display: block;
+        width: 12em;
+        height: 12em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30vh;
+    }
+</style>
+
+</html>

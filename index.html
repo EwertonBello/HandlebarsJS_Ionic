@@ -18,7 +18,7 @@
 <body>
 
     <!-- <script>
-        fetch('https://swapi.co/api/films/?format=json').then(function (res) {
+        fetch('https://swapi.dev/api/films/?format=json').then(function (res) {
 
             res.json().then(data => {
                 const source = document.getElementById('template').innerHTML;
@@ -29,7 +29,7 @@
     </script> -->
 
     <script>
-        fetch('https://swapi.co/api/films/?format=json').then(data => data.json()).then(function (data) {
+        fetch('https://swapi.dev/api/films/?format=json').then(data => data.json()).then(function (data) {
 
             const source = document.getElementById('template').innerHTML;
             const template = Handlebars.compile(source);
@@ -39,7 +39,7 @@
     </script>
 
     <!-- <script>
-        fetch('https://swapi.co/api/films/?format=json').then(async function (data) {
+        fetch('https://swapi.dev/api/films/?format=json').then(async function (data) {
 
             const data = await data.json();
             const source = document.getElementById('template').innerHTML;
@@ -50,7 +50,7 @@
     </script> -->
 
     <!-- <script>
-        $.getJSON('https://swapi.co/api/films/?format=json', function (data) {
+        $.getJSON('https://swapi.dev/api/films/?format=json', function (data) {
 
             const source = document.getElementById('template').innerHTML;
             const template = Handlebars.compile(source);
